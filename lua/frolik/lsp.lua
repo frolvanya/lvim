@@ -1,0 +1,187 @@
+local formatters = require "lvim.lsp.null-ls.formatters"
+formatters.setup {
+    { command = "black", filetypes = { "python" } },
+    {
+        command = "prettier",
+        extra_args = { "--print-with", "100", "--tab-width", "4" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "ejs" },
+    },
+}
+
+local linters = require "lvim.lsp.null-ls.linters"
+linters.setup {
+    { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
+}
+
+lvim.plugins = {
+    {
+        "folke/trouble.nvim",
+        cmd = "TroubleToggle",
+    },
+    -- {
+    --     "folke/noice.nvim",
+    --     event = "VeryLazy",
+    --     opts = {
+    --         cmdline = {
+    --             format = {
+    --                 search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
+    --                 search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
+    --             }
+    --         },
+    --         lsp = {
+    --             progress = { enabled = false },
+    --             signature = { enabled = false },
+    --             hover = { enabled = false },
+    --             message = { enabled = false },
+    --             override = {
+    --                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+    --                 ["vim.lsp.util.stylize_markdown"] = true,
+    --                 ["cmp.entry.get_documentation"] = true,
+    --             }
+    --         },
+    --         presets = {
+    --             -- bottom_search = true,
+    --             command_palette = true,
+    --             long_message_to_split = true,
+    --             inc_rename = false,
+    --             lsp_doc_border = false,
+    --         },
+    --     },
+    --     dependencies = {
+    --         "MunifTanjim/nui.nvim",
+    --         "rcarriga/nvim-notify",
+    --     }
+    -- },
+    {
+        "ray-x/lsp_signature.nvim",
+        event = "BufRead",
+        config = function()
+            require("lsp_signature").on_attach({ hint_enable = false })
+        end,
+    },
+    { "ggandor/leap.nvim" },
+    { "arcticicestudio/nord-vim" },
+    {
+        "nacro90/numb.nvim",
+        event = "BufRead",
+        config = function()
+            require("numb").setup {
+                show_numbers = true,
+                show_cursorline = true,
+            }
+        end,
+    },
+    { "simrat39/rust-tools.nvim" },
+    {
+        "saecki/crates.nvim",
+        version = "v0.4.0",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("crates").setup {
+                null_ls = {
+                    enabled = true,
+                    name = "crates.nvim",
+                },
+                popup = {
+                    border = "rounded",
+                },
+            }
+        end,
+    },
+    {
+        "j-hui/fidget.nvim",
+        branch = "legacy",
+        config = function()
+            require("fidget").setup()
+        end,
+    },
+    { "zbirenbaum/copilot.lua" },
+    {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        config = function()
+            ---@diagnostic disable-next-line: redundant-parameter
+            require("telescope").setup {
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown()
+                    }
+                }
+            }
+
+            require("telescope").load_extension("ui-select")
+        end
+    },
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "debugloop/telescope-undo.nvim",
+        },
+        config = function()
+            ---@diagnostic disable-next-line: redundant-parameter
+            require("telescope").setup({
+                extensions = {
+                    undo = {
+                        use_delta = false,
+                    },
+                },
+            })
+            require("telescope").load_extension("undo")
+        end,
+    },
+    {
+        "kevinhwang91/nvim-bqf",
+        event = { "BufRead", "BufNew" },
+        config = function()
+            require("bqf").setup({
+                auto_enable = true,
+                preview = {
+                    win_height = 12,
+                    win_vheight = 12,
+                    winblend = 0,
+                },
+                func_map = {
+                    vsplit = "",
+                    ptogglemode = "z,",
+                    stoggleup = "",
+                },
+                filter = {
+                    fzf = {
+                        action_for = { ["ctrl-s"] = "split" },
+                        extra_opts = { "--bind", "ctrl-o:toggle-all", "--prompt", "> " },
+                    },
+                },
+            })
+        end,
+    },
+    { "onsails/lspkind.nvim" },
+}
+
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd", "rust-analyzer" })
+
+local clangd_opts = {
+    cmd = { "clangd", "--all-scopes-completion", "--background-index", "--pch-storage=disk", "--log=info",
+        "--completion-style=detailed", "--enable-config", "--clang-tidy", "--offset-encoding=utf-16" },
+    filetypes = { "c", "cpp" },
+    root_dir = lvim.root_dir,
+}
+
+require("lvim.lsp.manager").setup("clangd", clangd_opts)

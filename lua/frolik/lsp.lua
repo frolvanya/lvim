@@ -18,40 +18,6 @@ lvim.plugins = {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
-    -- {
-    --     "folke/noice.nvim",
-    --     event = "VeryLazy",
-    --     opts = {
-    --         cmdline = {
-    --             format = {
-    --                 search_down = { kind = "search", pattern = "^/", icon = " ", lang = "regex" },
-    --                 search_up = { kind = "search", pattern = "^%?", icon = " ", lang = "regex" },
-    --             }
-    --         },
-    --         lsp = {
-    --             progress = { enabled = false },
-    --             signature = { enabled = false },
-    --             hover = { enabled = false },
-    --             message = { enabled = false },
-    --             override = {
-    --                 ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-    --                 ["vim.lsp.util.stylize_markdown"] = true,
-    --                 ["cmp.entry.get_documentation"] = true,
-    --             }
-    --         },
-    --         presets = {
-    --             -- bottom_search = true,
-    --             command_palette = true,
-    --             long_message_to_split = true,
-    --             inc_rename = false,
-    --             lsp_doc_border = false,
-    --         },
-    --     },
-    --     dependencies = {
-    --         "MunifTanjim/nui.nvim",
-    --         "rcarriga/nvim-notify",
-    --     }
-    -- },
     {
         "ray-x/lsp_signature.nvim",
         event = "BufRead",

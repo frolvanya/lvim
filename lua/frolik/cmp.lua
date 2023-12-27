@@ -1,17 +1,18 @@
 lvim.builtin.cmp.window.completion.scrollbar = false
 lvim.builtin.cmp.experimental.ghost_text     = true
 
-local cmp                                    = require("cmp")
 
-lvim.builtin.cmp.preselect                   = require "cmp.types.cmp".PreselectMode.None
+local cmp                             = require("cmp")
 
-local has_words_before                       = function()
+lvim.builtin.cmp.preselect            = require "cmp.types.cmp".PreselectMode.None
+
+local has_words_before                = function()
     if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then return false end
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_text(0, line - 1, 0, line - 1, col, {})[1]:match("^%s*$") == nil
 end
 
-lvim.builtin.cmp.mappings                    = {
+lvim.builtin.cmp.mappings             = {
     ["<C-p>"] = cmp.mapping.select_prev_item(),
     ["<C-n>"] = cmp.mapping.select_next_item(),
     ["<S-Tab>"] = cmp.mapping.select_prev_item(),
@@ -31,7 +32,8 @@ lvim.builtin.cmp.mappings                    = {
         select = true,
     }),
 }
-lvim.builtin.cmp.sources                     = {
+
+lvim.builtin.cmp.sources              = {
     { name = "copilot" },
     { name = "nvim_lsp" },
     { name = "path" },
@@ -39,12 +41,12 @@ lvim.builtin.cmp.sources                     = {
     { name = "crates" },
 }
 
-lvim.icons.ui.Ellipsis                       = "…"
-lvim.builtin.cmp.formatting.max_width        = 10
+lvim.icons.ui.Ellipsis                = "…"
+lvim.builtin.cmp.formatting.max_width = 10
 
-local lspkind                                = require('lspkind')
+local lspkind                         = require('lspkind')
 -- lvim.builtin.cmp.formatting.fields = { "kind", "abbr", "menu" }
-lvim.builtin.cmp.formatting.format           = lspkind.cmp_format({
+lvim.builtin.cmp.formatting.format    = lspkind.cmp_format({
     mode = 'symbol',
     maxwidth = 50,
     ellipsis_char = lvim.icons.ui.Ellipsis,

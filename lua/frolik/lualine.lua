@@ -14,7 +14,7 @@ vim.cmd("autocmd ColorScheme * highlight StatusLine ctermfg=NONE ctermbg=NONE gu
 vim.cmd("autocmd ColorScheme * highlight NormalFloat guifg=" .. colors.nord5 .. " guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight FloatBorder guifg=" .. colors.nord5 .. " guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight LspInfoBorder guifg=" .. colors.nord5 .. " guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight BufferLineFill guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight BufferLineFill guifg=" .. colors.nord5 .. " guibg=" .. colors.nord1)
 
 -- Hover Markdown Fix
 vim.cmd("autocmd ColorScheme * highlight link markdownError NONE")

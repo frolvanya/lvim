@@ -12,6 +12,7 @@ vim.cmd("autocmd BufEnter * set formatoptions-=cro")
 vim.cmd("autocmd BufEnter * setlocal formatoptions-=cro")
 
 vim.cmd("autocmd ColorScheme * highlight StatusLine ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight TabLineFill ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE")
 
 lvim.colorscheme = "nord"
 lvim.log.level = "warn"

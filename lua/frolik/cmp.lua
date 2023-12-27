@@ -44,10 +44,10 @@ lvim.builtin.cmp.sources              = {
 lvim.icons.ui.Ellipsis                = "…"
 lvim.builtin.cmp.formatting.max_width = 10
 
-local lspkind                         = require('lspkind')
+local lspkind                         = require("lspkind")
 -- lvim.builtin.cmp.formatting.fields = { "kind", "abbr", "menu" }
 lvim.builtin.cmp.formatting.format    = lspkind.cmp_format({
-    mode = 'symbol',
+    mode = "symbol",
     maxwidth = 50,
     ellipsis_char = lvim.icons.ui.Ellipsis,
     symbol_map = { Copilot = lvim.icons.git.Octoface, Snippet = " " },

@@ -1,7 +1,7 @@
 lvim.leader = "space"
 
-lvim.keys.normal_mode["<bs>"] = "<cmd>BufferLineCyclePrev<cr>"
-lvim.keys.normal_mode["<tab>"] = "<cmd>BufferLineCycleNext<cr>"
+lvim.keys.normal_mode["<bs>"] = "<cmd>bprev<cr>"
+lvim.keys.normal_mode["<tab>"] = "<cmd>bnext<cr>"
 
 lvim.keys.normal_mode["<C-<>"] = "<cmd>BufferLineMovePrev<cr>"
 lvim.keys.normal_mode["<C->>"] = "<cmd>BufferLineMoveNext<cr>"

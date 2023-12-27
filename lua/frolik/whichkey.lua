@@ -14,7 +14,7 @@ lvim.builtin.which_key.mappings["sg"] = { "<cmd>Telescope git_files<cr>", "Find 
 lvim.builtin.which_key.mappings["su"] = { "<cmd>Telescope undo<cr>", "Undotree" }
 lvim.builtin.which_key.mappings["bw"] = { "<cmd>BufferKill<cr>", "Close current buffer" }
 
-local crates = require('crates')
+local crates = require("crates")
 lvim.builtin.which_key.mappings["c"] = {
     name = "Crates",
     t = { crates.toggle, "Toogle" },

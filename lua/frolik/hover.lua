@@ -7,12 +7,12 @@ vim.cmd("autocmd ColorScheme * highlight luaParenError guifg=NONE guibg=NONE")
 
 local function show_documentation()
     local filetype = vim.bo.filetype
-    if vim.tbl_contains({ 'vim', 'help' }, filetype) then
-        vim.cmd('h ' .. vim.fn.expand('<cword>'))
-    elseif vim.tbl_contains({ 'man' }, filetype) then
-        vim.cmd('Man ' .. vim.fn.expand('<cword>'))
-    elseif vim.fn.expand('%:t') == 'Cargo.toml' and require('crates').popup_available() then
-        require('crates').show_popup()
+    if vim.tbl_contains({ "vim", "help" }, filetype) then
+        vim.cmd("h " .. vim.fn.expand("<cword>"))
+    elseif vim.tbl_contains({ "man" }, filetype) then
+        vim.cmd("Man " .. vim.fn.expand("<cword>"))
+    elseif vim.fn.expand("%:t") == "Cargo.toml" and require("crates").popup_available() then
+        require("crates").show_popup()
     else
         vim.lsp.buf.hover()
     end
@@ -30,4 +30,4 @@ vim.lsp.handlers["textDocument/hover"] =
 
 lvim.lsp.buffer_mappings.normal_mode["K"] = { show_documentation, "Show hover" }
 
-require('lspconfig.ui.windows').default_options.border = 'rounded'
+require("lspconfig.ui.windows").default_options.border = "rounded"

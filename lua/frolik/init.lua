@@ -1,4 +1,5 @@
 require("frolik.set")
+require("frolik.plugins")
 
 require("frolik.mappings")
 require("frolik.whichkey")

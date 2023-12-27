@@ -1,28 +1,4 @@
-local colors = {
-    nord1  = '#3B4252',
-    nord3  = '#4C566A',
-    nord5  = '#E5E9F0',
-    nord6  = '#ECEFF4',
-    nord7  = '#8FBCBB',
-    nord8  = '#88C0D0',
-    nord13 = '#EBCB8B',
-    nord14 = '#2E3440',
-}
-
-vim.cmd("autocmd ColorScheme * highlight LeapLabelPrimary guifg=" .. colors.nord1 .. " guibg=" .. colors.nord8)
-vim.cmd("autocmd ColorScheme * highlight StatusLine ctermfg=NONE ctermbg=NONE guifg=NONE guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight NormalFloat guifg=" .. colors.nord5 .. " guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight FloatBorder guifg=" .. colors.nord5 .. " guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight LspInfoBorder guifg=" .. colors.nord5 .. " guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight BufferLineFill guifg=" .. colors.nord5 .. " guibg=" .. colors.nord1)
-
--- Hover Markdown Fix
-vim.cmd("autocmd ColorScheme * highlight link markdownError NONE")
-vim.cmd("autocmd ColorScheme * highlight markdownError guifg=NONE guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight link luaError NONE")
-vim.cmd("autocmd ColorScheme * highlight luaError guifg=NONE guibg=NONE")
-vim.cmd("autocmd ColorScheme * highlight link luaParenError NONE")
-vim.cmd("autocmd ColorScheme * highlight luaParenError guifg=NONE guibg=NONE")
+local colors = require("frolik.colors")
 
 local nordic = {
     normal = {
@@ -75,3 +51,5 @@ lvim.builtin.lualine.tabline = {
     -- lualine_z = { { 'datetime', style = '%H:%M' } },
 }
 lvim.builtin.lualine.extensions = {}
+
+return colors

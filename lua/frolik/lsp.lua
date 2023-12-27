@@ -1,3 +1,8 @@
+local colors = require("frolik.colors")
+vim.cmd("autocmd ColorScheme * highlight NormalFloat guifg=" .. colors.nord5 .. " guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight FloatBorder guifg=" .. colors.nord5 .. " guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight LspInfoBorder guifg=" .. colors.nord5 .. " guibg=NONE")
+
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {
     { command = "black", filetypes = { "python" } },

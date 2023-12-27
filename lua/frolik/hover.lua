@@ -1,3 +1,10 @@
+vim.cmd("autocmd ColorScheme * highlight link markdownError NONE")
+vim.cmd("autocmd ColorScheme * highlight markdownError guifg=NONE guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight link luaError NONE")
+vim.cmd("autocmd ColorScheme * highlight luaError guifg=NONE guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight link luaParenError NONE")
+vim.cmd("autocmd ColorScheme * highlight luaParenError guifg=NONE guibg=NONE")
+
 local function show_documentation()
     local filetype = vim.bo.filetype
     if vim.tbl_contains({ 'vim', 'help' }, filetype) then

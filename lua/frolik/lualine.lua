@@ -42,7 +42,6 @@ lvim.builtin.lualine.inactive_sections = {
     lualine_z = { "location", { "datetime", style = "%H:%M" } },
 }
 
-
 lvim.builtin.lualine.tabline = {
     lualine_a = {
         {

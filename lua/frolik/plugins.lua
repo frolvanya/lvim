@@ -126,3 +126,4 @@ lvim.plugins = {
     { "onsails/lspkind.nvim" },
     { "tpope/vim-fugitive" },
 }
+local x

@@ -38,3 +38,14 @@ lvim.builtin.which_key.mappings["m"] = {
     s = { "<cmd>MarkdownPreviewStop<cr>", "MarkdownPreviewStop" },
     t = { "<cmd>MarkdownPreviewToggle<cr>", "MarkdownPreviewToggle" },
 }
+
+lvim.builtin.which_key.mappings["g"] = {
+    name = "Git",
+    a = { "<cmd>G add .<cr>", "Add" },
+    m = { "<cmd>G commit<cr>", "Commit" },
+    p = { "<cmd>G push<cr>", "Push" },
+    s = { "<cmd>G status<cr>", "Status" },
+    d = { "<cmd>G diff<cr>", "Diff" },
+    g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
+    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+}

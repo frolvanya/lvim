@@ -26,19 +26,7 @@ lvim.builtin.lualine.sections = {
     lualine_a = {
         { "mode", separator = { left = "", right = "" } },
     },
-    lualine_b = { "filename" },
-    lualine_c = {
-        { "branch", icon = lvim.icons.git.Branch },
-        {
-            "diff",
-            symbols = {
-                added = lvim.icons.git.LineAdded .. " ",
-                modified = lvim.icons.git.LineModified .. " ",
-                removed = lvim.icons.git.LineRemoved .. " "
-            },
-            padding = { left = 2, right = 1 }
-        },
-    },
+    lualine_b = { "filename", "branch" },
     lualine_x = {},
     lualine_y = { "filetype" },
     lualine_z = { { "progress", separator = { left = "", right = "" } } },
@@ -74,10 +62,10 @@ lvim.builtin.lualine.tabline = {
                 hint  = "DiagnosticHint",
             },
             symbols = {
-                error = lvim.icons.diagnostics.BoldError .. " ",
-                warn = lvim.icons.diagnostics.BoldWarning .. " ",
-                info = lvim.icons.diagnostics.BoldInformation .. " ",
-                hint = lvim.icons.diagnostics.BoldHint .. " ",
+                error = lvim.icons.diagnostics.Error .. " ",
+                warn = lvim.icons.diagnostics.Warning .. " ",
+                info = lvim.icons.diagnostics.Information .. " ",
+                hint = lvim.icons.diagnostics.Hint .. " ",
             },
             separator = { left = "", right = "" },
             colored = true,
@@ -89,10 +77,10 @@ lvim.builtin.lualine.tabline = {
 }
 
 lvim.builtin.lualine.extensions = {
-    require("frolik.lualine-extensions.dap"),
-    require("frolik.lualine-extensions.fugitive"),
-    require("frolik.lualine-extensions.lazy"),
-    require("frolik.lualine-extensions.oil"),
-    require("frolik.lualine-extensions.toggleterm"),
-    require("frolik.lualine-extensions.quickfix")
+    require("frolik.lualine.dap"),
+    require("frolik.lualine.fugitive"),
+    require("frolik.lualine.lazy"),
+    require("frolik.lualine.oil"),
+    require("frolik.lualine.toggleterm"),
+    require("frolik.lualine.quickfix")
 }

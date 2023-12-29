@@ -5,7 +5,6 @@ require("frolik.mappings")
 require("frolik.whichkey")
 
 require("frolik.lualine")
-require("frolik.bufferline")
 require("frolik.statuscolumn")
 require("frolik.hover")
 

@@ -56,6 +56,15 @@ lvim.builtin.lualine.tabline = {
             right_padding = 2,
             symbols = { alternate_file = "" },
             max_length = vim.o.columns * 0.75,
+            filetype_names = {
+                TelescopePrompt = "Telescope",
+                dashboard = "Dashboard",
+                packer = "Packer",
+                fzf = "FZF",
+                alpha = "Alpha",
+                oil = "Oil",
+                markdown = " Markdown",
+            },
             buffers_color = {
                 active = "lualine_a_normal",
                 inactive = "lualine_b_normal",

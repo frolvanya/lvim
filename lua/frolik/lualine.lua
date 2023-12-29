@@ -103,5 +103,6 @@ lvim.builtin.lualine.extensions = {
     require("frolik.lualine-extensions.lazy"),
     require("frolik.lualine-extensions.oil"),
     require("frolik.lualine-extensions.toggleterm"),
+    require("frolik.lualine-extensions.telescope"),
     require("frolik.lualine-extensions.quickfix")
 }

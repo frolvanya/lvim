@@ -124,4 +124,5 @@ lvim.plugins = {
         end,
     },
     { "onsails/lspkind.nvim" },
+    { "tpope/vim-fugitive" },
 }

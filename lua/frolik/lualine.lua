@@ -24,22 +24,16 @@ lvim.builtin.lualine.options = {
 
 lvim.builtin.lualine.sections = {
     lualine_a = {
-        { "mode", separator = { left = "" } },
+        { "mode", separator = { left = "", right = "" } },
     },
     lualine_b = { "filename", "branch" },
-    lualine_c = { --[[ { "fileformat", symbols = { unix = "" } } ]] },
     lualine_x = {},
-    lualine_y = { "filetype", "progress" --[[ , "location" ]] },
-    lualine_z = { { "datetime", style = "%H:%M", separator = { right = "" } } },
+    lualine_y = { "filetype" },
+    lualine_z = { { "progress", separator = { left = "", right = "" } } },
 }
 
 lvim.builtin.lualine.inactive_sections = {
     lualine_a = { "filename" },
-    lualine_b = {},
-    lualine_c = {},
-    lualine_x = {},
-    lualine_y = {},
-    lualine_z = { "location", { "datetime", style = "%H:%M" } },
 }
 
 lvim.builtin.lualine.tabline = {
@@ -56,7 +50,7 @@ lvim.builtin.lualine.tabline = {
             },
         },
     },
-    lualine_z = {
+    lualine_x = {
         {
             "diagnostics",
             sources = { "nvim_lsp" },
@@ -78,6 +72,7 @@ lvim.builtin.lualine.tabline = {
             update_in_insert = false,
             always_visible = false,
         }
-    }
+    },
+    lualine_z = { { "datetime", style = "%H:%M", separator = { left = "", right = "" } } },
 }
 lvim.builtin.lualine.extensions = { "toggleterm" }

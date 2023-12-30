@@ -1,8 +1,11 @@
 lvim.plugins = {
+    { "arcticicestudio/nord-vim" },
+
     {
         "folke/trouble.nvim",
         cmd = "TroubleToggle",
     },
+    { "onsails/lspkind.nvim" },
     {
         "ray-x/lsp_signature.nvim",
         event = "BufRead",
@@ -10,92 +13,11 @@ lvim.plugins = {
             require("lsp_signature").on_attach({ hint_enable = false })
         end,
     },
-    { "ggandor/leap.nvim" },
-    { "arcticicestudio/nord-vim" },
-    {
-        "nacro90/numb.nvim",
-        event = "BufRead",
-        config = function()
-            require("numb").setup {
-                show_numbers = true,
-                show_cursorline = true,
-            }
-        end,
-    },
-    { "simrat39/rust-tools.nvim" },
-    {
-        "saecki/crates.nvim",
-        version = "v0.4.0",
-        dependencies = { "nvim-lua/plenary.nvim" },
-        config = function()
-            require("crates").setup {
-                null_ls = {
-                    enabled = true,
-                    name = "crates.nvim",
-                },
-                popup = {
-                    border = "rounded",
-                },
-            }
-        end,
-    },
     {
         "j-hui/fidget.nvim",
         branch = "legacy",
         config = function()
             require("fidget").setup()
-        end,
-    },
-    { "zbirenbaum/copilot.lua" },
-    {
-        "zbirenbaum/copilot-cmp",
-        after = { "copilot.lua" },
-        config = function()
-            require("copilot_cmp").setup()
-        end
-    },
-    {
-        "iamcco/markdown-preview.nvim",
-        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
-        ft = { "markdown" },
-        build = function() vim.fn["mkdp#util#install"]() end,
-    },
-    {
-        "stevearc/oil.nvim",
-        opts = {},
-        dependencies = { "nvim-tree/nvim-web-devicons" },
-    },
-    {
-        "nvim-telescope/telescope-ui-select.nvim",
-        config = function()
-            ---@diagnostic disable-next-line: redundant-parameter
-            require("telescope").setup {
-                extensions = {
-                    ["ui-select"] = {
-                        require("telescope.themes").get_dropdown()
-                    }
-                }
-            }
-
-            require("telescope").load_extension("ui-select")
-        end
-    },
-    {
-        "nvim-telescope/telescope.nvim",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-            "debugloop/telescope-undo.nvim",
-        },
-        config = function()
-            ---@diagnostic disable-next-line: redundant-parameter
-            require("telescope").setup({
-                extensions = {
-                    undo = {
-                        use_delta = false,
-                    },
-                },
-            })
-            require("telescope").load_extension("undo")
         end,
     },
     {
@@ -123,6 +45,90 @@ lvim.plugins = {
             })
         end,
     },
-    { "onsails/lspkind.nvim" },
+
+    { "zbirenbaum/copilot.lua" },
+    {
+        "zbirenbaum/copilot-cmp",
+        after = { "copilot.lua" },
+        config = function()
+            require("copilot_cmp").setup()
+        end
+    },
+
+    { "ggandor/leap.nvim" },
+    {
+        "nacro90/numb.nvim",
+        event = "BufRead",
+        config = function()
+            require("numb").setup {
+                show_numbers = true,
+                show_cursorline = true,
+            }
+        end,
+    },
+    {
+        "iamcco/markdown-preview.nvim",
+        cmd = { "MarkdownPreviewToggle", "MarkdownPreview", "MarkdownPreviewStop" },
+        ft = { "markdown" },
+        build = function() vim.fn["mkdp#util#install"]() end,
+    },
     { "tpope/vim-fugitive" },
+    {
+        "stevearc/oil.nvim",
+        opts = {},
+        dependencies = { "nvim-tree/nvim-web-devicons" },
+    },
+
+    { "simrat39/rust-tools.nvim" },
+    {
+        "saecki/crates.nvim",
+        version = "v0.4.0",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        config = function()
+            require("crates").setup {
+                null_ls = {
+                    enabled = true,
+                    name = "crates.nvim",
+                },
+                popup = {
+                    border = "rounded",
+                },
+            }
+        end,
+    },
+
+
+    {
+        "nvim-telescope/telescope.nvim",
+        dependencies = {
+            "nvim-lua/plenary.nvim",
+            "debugloop/telescope-undo.nvim",
+        },
+        config = function()
+            ---@diagnostic disable-next-line: redundant-parameter
+            require("telescope").setup({
+                extensions = {
+                    undo = {
+                        use_delta = false,
+                    },
+                },
+            })
+            require("telescope").load_extension("undo")
+        end,
+    },
+    {
+        "nvim-telescope/telescope-ui-select.nvim",
+        config = function()
+            ---@diagnostic disable-next-line: redundant-parameter
+            require("telescope").setup {
+                extensions = {
+                    ["ui-select"] = {
+                        require("telescope.themes").get_dropdown()
+                    }
+                }
+            }
+
+            require("telescope").load_extension("ui-select")
+        end
+    },
 }

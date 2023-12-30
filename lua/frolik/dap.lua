@@ -26,7 +26,7 @@ lvim.builtin.dap.on_config_done    = function(dap)
                 for a in string.gmatch(arg, "%S+") do
                     table.insert(argv, a)
                 end
-                vim.cmd('echo ""')
+                vim.cmd("echo ''")
                 return argv
             end,
             cwd = "${workspaceFolder}",
@@ -64,7 +64,7 @@ lvim.builtin.dap.on_config_done    = function(dap)
                 for a in string.gmatch(arg, "%S+") do
                     table.insert(argv, a)
                 end
-                vim.cmd('echo ""')
+                vim.cmd("echo ''")
                 return argv
             end,
             cwd = "${workspaceFolder}",

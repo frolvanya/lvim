@@ -3,7 +3,7 @@ local function is_loclist()
 end
 
 local function label()
-    return is_loclist() and 'Location List' or 'Quickfix List'
+    return is_loclist() and "Location List" or "Quickfix List"
 end
 
 local function title()
@@ -22,10 +22,9 @@ end
 M.sections = {
     lualine_a = { { label, separator = { left = "", right = "" } } },
     lualine_b = { { title, separator = { left = "", right = "" } } },
-    lualine_z = { { 'location', separator = { left = "", right = "" } } }
+    lualine_z = { { "location", separator = { left = "", right = "" } } }
 }
 
-M.filetypes = { 'qf' }
+M.filetypes = { "qf" }
 
 return M
-

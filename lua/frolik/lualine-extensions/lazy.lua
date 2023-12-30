@@ -1,6 +1,6 @@
-local ok, lazy = pcall(require, 'lazy')
+local ok, lazy = pcall(require, "lazy")
 if not ok then
-    return ''
+    return ""
 end
 
 local M = {}
@@ -9,28 +9,28 @@ M.sections = {
     lualine_a = {
         {
             function()
-                return 'lazy 󰒲'
+                return "lazy 󰒲"
             end,
-            separator = { left = '', right = '' },
+            separator = { left = "", right = "" },
         }
     },
     lualine_b = {
         {
             function()
-                return 'loaded: ' .. lazy.stats().loaded .. '/' .. lazy.stats().count
+                return "loaded: " .. lazy.stats().loaded .. "/" .. lazy.stats().count
             end,
-            separator = { left = '', right = '' },
+            separator = { left = "", right = "" },
         }
     },
     lualine_c = {
         {
-            require('lazy.status').updates,
-            cond = require('lazy.status').has_updates,
-            separator = { left = '', right = '' },
+            require("lazy.status").updates,
+            cond = require("lazy.status").has_updates,
+            separator = { left = "", right = "" },
         },
     },
 }
 
-M.filetypes = { 'lazy' }
+M.filetypes = { "lazy" }
 
 return M

@@ -64,6 +64,7 @@ lvim.builtin.lualine.tabline = {
                 alpha = "Alpha",
                 oil = "Oil",
                 markdown = " Markdown",
+                checkhealth = "Checkhealth",
             },
             buffers_color = {
                 active = "lualine_a_normal",

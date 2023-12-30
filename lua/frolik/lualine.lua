@@ -63,7 +63,6 @@ lvim.builtin.lualine.tabline = {
                 fzf = "FZF",
                 alpha = "Alpha",
                 oil = "Oil",
-                markdown = " Markdown",
                 checkhealth = "Checkhealth",
                 harpoon = "Harpoon",
             },

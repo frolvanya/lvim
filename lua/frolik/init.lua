@@ -5,6 +5,7 @@ require("frolik.mappings")
 require("frolik.whichkey")
 
 require("frolik.lualine")
+require("frolik.nvim-web-devicons")
 require("frolik.statuscolumn")
 require("frolik.hover")
 

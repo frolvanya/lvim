@@ -73,7 +73,7 @@ harpoon:setup()
 lvim.builtin.which_key.mappings["h"] = {
     name = "Harpoon",
     a = { function() harpoon:list():append() end, "Add" },
-    e = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Toggle quick menu" },
+    e = { function() harpoon.ui:toggle_quick_menu(harpoon:list(), { border = "rounded", title_pos = "center" }) end, "Toggle quick menu" },
     -- e = { function() toggle_telescope(harpoon:list()) end, "Toggle quick menu" },
     h = { function() harpoon:list():select(1) end, "Navigate to 1" },
     j = { function() harpoon:list():select(2) end, "Navigate to 2" },

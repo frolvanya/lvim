@@ -10,6 +10,6 @@ M.sections = {
     lualine_z = { { "location", separator = { left = "", right = "" } } },
 }
 
-M.filetypes = { "git", "fugitive" }
+M.filetypes = { "git", "gitcommit", "fugitive" }
 
 return M

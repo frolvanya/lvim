@@ -101,8 +101,7 @@ lvim.builtin.lualine.tabline = {
 lvim.builtin.lualine.extensions = {
     require("frolik.lualine-extensions.dap"),
     require("frolik.lualine-extensions.fugitive"),
-    ---@diagnostic disable-next-line: different-requires
-    require("frolik.lualine-extensions.harpoon"),
+    require("frolik.lualine-extensions.harpoon-ext"),
     require("frolik.lualine-extensions.lazy"),
     require("frolik.lualine-extensions.oil"),
     require("frolik.lualine-extensions.toggleterm"),

@@ -10,6 +10,7 @@ local function title()
     if is_loclist() then
         return vim.fn.getloclist(0, { title = 0 }).title
     end
+
     return vim.fn.getqflist({ title = 0 }).title
 end
 

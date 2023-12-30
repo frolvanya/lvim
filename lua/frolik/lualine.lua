@@ -65,6 +65,7 @@ lvim.builtin.lualine.tabline = {
                 oil = "Oil",
                 markdown = " Markdown",
                 checkhealth = "Checkhealth",
+                harpoon = "Harpoon",
             },
             buffers_color = {
                 active = "lualine_a_normal",
@@ -101,6 +102,7 @@ lvim.builtin.lualine.tabline = {
 lvim.builtin.lualine.extensions = {
     require("frolik.lualine-extensions.dap"),
     require("frolik.lualine-extensions.fugitive"),
+    require("frolik.lualine-extensions.harpoon"),
     require("frolik.lualine-extensions.lazy"),
     require("frolik.lualine-extensions.oil"),
     require("frolik.lualine-extensions.toggleterm"),

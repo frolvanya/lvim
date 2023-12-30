@@ -49,3 +49,36 @@ lvim.builtin.which_key.mappings["g"] = {
     g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
     l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
 }
+
+local harpoon = require("harpoon")
+harpoon:setup()
+
+-- local conf = require("telescope.config").values
+-- local function toggle_telescope(harpoon_files)
+--     local file_paths = {}
+--     for _, item in ipairs(harpoon_files.items) do
+--         table.insert(file_paths, item.value)
+--     end
+
+--     require("telescope.pickers").new({}, {
+--         prompt_title = "Harpoon",
+--         finder = require("telescope.finders").new_table({
+--             results = file_paths,
+--         }),
+--         previewer = conf.file_previewer({}),
+--         sorter = conf.generic_sorter({}),
+--     }):find()
+-- end
+
+lvim.builtin.which_key.mappings["h"] = {
+    name = "Harpoon",
+    a = { function() harpoon:list():append() end, "Add" },
+    e = { function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, "Toggle quick menu" },
+    -- e = { function() toggle_telescope(harpoon:list()) end, "Toggle quick menu" },
+    h = { function() harpoon:list():select(1) end, "Navigate to 1" },
+    j = { function() harpoon:list():select(2) end, "Navigate to 2" },
+    k = { function() harpoon:list():select(3) end, "Navigate to 3" },
+    l = { function() harpoon:list():select(4) end, "Navigate to 4" },
+    p = { function() harpoon:list():prev() end, "Previous" },
+    n = { function() harpoon:list():next() end, "Next" },
+}

@@ -46,8 +46,9 @@ lvim.builtin.which_key.mappings["g"] = {
     p = { "<cmd>G push<cr>", "Push" },
     s = { "<cmd>G status<cr>", "Status" },
     d = { "<cmd>G diff<cr>", "Diff" },
+    l = { "<cmd>G log -p<cr>", "Log" },
     g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
-    l = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+    b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
 }
 
 local harpoon = require("harpoon")

@@ -88,8 +88,8 @@ lvim.builtin.lualine.tabline = {
             },
             symbols = {
                 error = lvim.icons.diagnostics.BoldError .. " ",
-                warn = lvim.icons.diagnostics.BoldWarning .. " ",
-                info = lvim.icons.diagnostics.BoldInformation .. " ",
+                warn = lvim.icons.diagnostics.BoldWarning .. "  ",
+                info = lvim.icons.diagnostics.BoldInformation,
                 hint = lvim.icons.diagnostics.BoldHint .. " ",
             },
             separator = { left = "", right = "" },

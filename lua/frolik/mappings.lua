@@ -14,3 +14,14 @@ lvim.keys.normal_mode["<S-l>"] = "<cmd>wincmd l<CR>"
 lvim.keys.normal_mode["<S-h>"] = "<cmd>wincmd h<CR>"
 lvim.keys.normal_mode["<S-j>"] = "<cmd>wincmd j<CR>"
 lvim.keys.normal_mode["<S-k>"] = "<cmd>wincmd k<CR>"
+
+lvim.keys.normal_mode["gx"] = "<cmd>lua OpenURLUnderCursor()<CR>"
+
+function OpenURLUnderCursor()
+    local url = vim.fn.matchstr(vim.fn.getline('.'), '\\v<http[s]?://\\S+>')
+    if url ~= '' then
+        vim.fn.system('open ' .. vim.fn.shellescape(url))
+    else
+        print("No URL under cursor")
+    end
+end

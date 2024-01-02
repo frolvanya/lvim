@@ -45,7 +45,25 @@ lvim.builtin.lualine.sections = {
 }
 
 lvim.builtin.lualine.inactive_sections = {
-    lualine_a = { "filename" },
+    lualine_a = {
+        { "mode", separator = { left = "", right = "" } },
+    },
+    lualine_b = { "filename" },
+    lualine_c = {
+        { "branch", icon = lvim.icons.git.Branch },
+        {
+            "diff",
+            symbols = {
+                added = lvim.icons.git.LineAdded .. " ",
+                modified = lvim.icons.git.LineModified .. " ",
+                removed = lvim.icons.git.LineRemoved .. " "
+            },
+            padding = { left = 2, right = 1 }
+        },
+    },
+    lualine_x = {},
+    lualine_y = { "filetype" },
+    lualine_z = { { "progress", separator = { left = "", right = "" } } },
 }
 
 lvim.builtin.lualine.tabline = {

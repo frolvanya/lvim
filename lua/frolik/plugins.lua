@@ -83,6 +83,14 @@ lvim.plugins = {
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
+    {
+        "kylechui/nvim-surround",
+        version = "*",
+        event = "VeryLazy",
+        config = function()
+            require("nvim-surround").setup({})
+        end
+    },
 
     { "simrat39/rust-tools.nvim" },
     {

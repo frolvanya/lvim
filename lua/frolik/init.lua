@@ -9,8 +9,6 @@ require("frolik.nvim-web-devicons")
 require("frolik.statuscolumn")
 require("frolik.hover")
 
-require("frolik.project")
-
 require("frolik.cmp")
 require("frolik.lsp")
 require("frolik.dap")

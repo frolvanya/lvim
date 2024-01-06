@@ -9,13 +9,14 @@ formatters.setup {
     {
         command = "prettier",
         extra_args = { "--print-with", "100", "--tab-width", "4" },
-        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css", "ejs" },
+        filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "css" },
     },
 }
 
 local linters = require "lvim.lsp.null-ls.linters"
 linters.setup {
-    { command = "eslint", filetypes = { "typescript", "typescriptreact" } }
+    { command = "eslint_d", filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact" } },
+    { command = "flake8",   filetypes = { "python" } }
 }
 
 vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd", "rust-analyzer" })

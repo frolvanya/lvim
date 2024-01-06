@@ -14,5 +14,6 @@ require("frolik.lsp")
 require("frolik.dap")
 require("frolik.leap")
 require("frolik.copilot")
+require("frolik.trouble")
 
 require("frolik.treesitter")

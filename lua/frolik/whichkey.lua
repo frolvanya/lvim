@@ -8,6 +8,8 @@ lvim.builtin.which_key.mappings[";"] = nil
 lvim.builtin.which_key.mappings["h"] = nil
 lvim.builtin.which_key.mappings["e"] = nil
 lvim.builtin.which_key.mappings["T"] = nil
+lvim.builtin.which_key.mappings["q"] = nil
+lvim.builtin.which_key.mappings["w"] = nil
 
 lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope find_files<cr>", "Find File" }
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>Telescope git_files<cr>", "Find Git File" }
@@ -49,6 +51,13 @@ lvim.builtin.which_key.mappings["g"] = {
     l = { "<cmd>G log -p<cr>", "Log" },
     g = { "<cmd>lua require 'lvim.core.terminal'.lazygit_toggle()<cr>", "Lazygit" },
     b = { "<cmd>lua require 'gitsigns'.blame_line()<cr>", "Blame" },
+}
+
+lvim.builtin.which_key.mappings["t"] = {
+    name = "Trouble",
+    t = { "<cmd>TroubleToggle<cr>", "Toggle" },
+    r = { "<cmd>TroubleRefresh<cr>", "Refresh" },
+    c = { "<cmd>TroubleClose<cr>", "Close" },
 }
 
 local harpoon = require("harpoon")

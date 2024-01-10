@@ -6,6 +6,8 @@ lvim.builtin.cmp.window.completion.scrollbar = false
 lvim.builtin.cmp.preselect                   = require "cmp.types.cmp".PreselectMode.None
 
 
+table.insert(lvim.builtin.cmp.sources, { name = "nvim_lsp_signature_help" })
+
 local lspkind                      = require("lspkind")
 lvim.icons.ui.Ellipsis             = "…"
 lvim.builtin.cmp.formatting.format = lspkind.cmp_format({

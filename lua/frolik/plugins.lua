@@ -7,13 +7,6 @@ lvim.plugins = {
     },
     { "onsails/lspkind.nvim" },
     {
-        "ray-x/lsp_signature.nvim",
-        event = "BufRead",
-        config = function()
-            require("lsp_signature").on_attach({ hint_enable = false })
-        end,
-    },
-    {
         "j-hui/fidget.nvim",
         config = function()
             require("fidget").setup()
@@ -161,5 +154,7 @@ lvim.plugins = {
                 },
             }
         },
-    }
+    },
+
+    { "hrsh7th/cmp-nvim-lsp-signature-help" }
 }

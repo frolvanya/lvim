@@ -17,3 +17,4 @@ require("frolik.copilot")
 require("frolik.trouble")
 
 require("frolik.treesitter")
+require("frolik.project")

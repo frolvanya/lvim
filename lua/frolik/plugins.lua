@@ -84,7 +84,17 @@ lvim.plugins = {
         end
     },
 
-    { "simrat39/rust-tools.nvim" },
+    {
+        "mrcjkb/rustaceanvim",
+        ft = { "rust" },
+        config = function()
+            vim.g.rustaceanvim = {
+                server = {
+                    on_attach = require("lvim.lsp").common_on_attach
+                },
+            }
+        end,
+    },
     {
         "saecki/crates.nvim",
         version = "v0.4.0",
@@ -137,24 +147,5 @@ lvim.plugins = {
         end
     },
 
-    {
-        "epwalsh/obsidian.nvim",
-        version = "*",
-        lazy = true,
-        ft = "markdown",
-        dependencies = {
-            "nvim-lua/plenary.nvim",
-
-        },
-        opts = {
-            workspaces = {
-                {
-                    name = "personal",
-                    path = "~/personal",
-                },
-            }
-        },
-    },
-
-    { "hrsh7th/cmp-nvim-lsp-signature-help" }
+    { "hrsh7th/cmp-nvim-lsp-signature-help" },
 }

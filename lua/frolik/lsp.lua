@@ -19,7 +19,7 @@ linters.setup {
     { command = "ruff",     filetypes = { "python" } },
 }
 
-vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd", "rust-analyzer" })
+vim.list_extend(lvim.lsp.automatic_configuration.skipped_servers, { "clangd", "rust_analyzer" })
 
 local clangd_opts = {
     cmd = { "clangd", "--all-scopes-completion", "--background-index", "--pch-storage=disk", "--log=info",

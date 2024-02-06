@@ -122,6 +122,11 @@ lvim.plugins = {
         config = function()
             ---@diagnostic disable-next-line: redundant-parameter
             require("telescope").setup({
+                pickers = {
+                    find_files = {
+                        hidden = true
+                    }
+                },
                 extensions = {
                     undo = {
                         use_delta = false,

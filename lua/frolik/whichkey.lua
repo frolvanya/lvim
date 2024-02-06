@@ -10,11 +10,23 @@ lvim.builtin.which_key.mappings["e"] = nil
 lvim.builtin.which_key.mappings["T"] = nil
 lvim.builtin.which_key.mappings["q"] = nil
 lvim.builtin.which_key.mappings["w"] = nil
+lvim.builtin.which_key.mappings["f"] = nil
 
-lvim.builtin.which_key.mappings["f"] = { "<cmd>Telescope find_files<cr>", "Find File" }
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>Telescope git_files<cr>", "Find Git File" }
 lvim.builtin.which_key.mappings["su"] = { "<cmd>Telescope undo<cr>", "Undotree" }
 lvim.builtin.which_key.mappings["bw"] = { "<cmd>BufferKill<cr>", "Close current buffer" }
+
+lvim.builtin.which_key.mappings["r"] = {
+    name = "Rust",
+    r = { "<cmd>RustLsp runnables<cr>", "Runnables" },
+    t = { "<cmd>RustLsp testables<cr>", "Testables" },
+    m = { "<cmd>RustLsp expandMacro<cr>", "Expand Macro" },
+    a = { "<cmd>RustLsp codeAction<cr>", "Code Actions" },
+    h = { "<cmd>RustLsp hover actions<cr>", "Hover" },
+    e = { "<cmd>RustLsp explainError<cr>", "Explain Error" },
+    d = { "<cmd>RustLsp renderDiagnostic<cr>", "Render Diagnostic" },
+    c = { "<cmd>RustLsp openCargo<cr>", "Open Cargo.toml" },
+}
 
 local crates = require("crates")
 lvim.builtin.which_key.mappings["c"] = {

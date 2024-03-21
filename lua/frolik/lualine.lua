@@ -22,6 +22,8 @@ lvim.builtin.lualine.options = {
     section_separators = { left = "", right = "" },
 }
 
+local Harpoonline = require("harpoonline").setup()
+
 lvim.builtin.lualine.sections = {
     lualine_a = {
         { "mode", separator = { left = "", right = "" } },
@@ -39,7 +41,9 @@ lvim.builtin.lualine.sections = {
             padding = { left = 2, right = 1 }
         },
     },
-    lualine_x = {},
+    lualine_x = {
+        { Harpoonline.format, "filename" }
+    },
     lualine_y = { "filetype" },
     lualine_z = { { "progress", separator = { left = "", right = "" } } },
 }

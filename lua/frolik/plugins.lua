@@ -75,6 +75,7 @@ lvim.plugins = {
         branch = "harpoon2",
         dependencies = { "nvim-lua/plenary.nvim" }
     },
+    { "abeldekat/harpoonline" },
     {
         "kylechui/nvim-surround",
         version = "*",

@@ -22,7 +22,8 @@ lvim.builtin.lualine.options = {
     section_separators = { left = "", right = "" },
 }
 
-local Harpoonline = require("harpoonline").setup()
+local Harpoonline = require("harpoonline")
+Harpoonline.setup()
 
 lvim.builtin.lualine.sections = {
     lualine_a = {

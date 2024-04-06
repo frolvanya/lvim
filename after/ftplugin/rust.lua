@@ -6,8 +6,9 @@ lvim.builtin.which_key.mappings["r"] = {
     a = { "<cmd>RustLsp codeAction<cr>", "Code Actions" },
     h = { "<cmd>RustLsp hover actions<cr>", "Hover" },
     e = { "<cmd>RustLsp explainError<cr>", "Explain Error" },
-    d = { "<cmd>RustLsp renderDiagnostic<cr>", "Render Diagnostic" },
+    D = { "<cmd>RustLsp renderDiagnostic<cr>", "Render Diagnostic" },
     c = { "<cmd>RustLsp openCargo<cr>", "Open Cargo.toml" },
+    d = { "<cmd>RustLsp openDocs<cr>", "Open Docs.rs" },
 }
 
 local crates = require("crates")

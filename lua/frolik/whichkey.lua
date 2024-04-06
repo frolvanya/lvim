@@ -62,11 +62,6 @@ lvim.builtin.which_key.mappings["a"] = {
         "<cmd>lua require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').prompt_actions())<cr>",
         "Prompt actions"
     },
-    e = { "<cmd>CopilotChatExplain<cr>", "Explain code" },
-    T = { "<cmd>CopilotChatTests<cr>", "Generate tests" },
-    r = { "<cmd>CopilotChatReview<cr>", "Review code" },
-    R = { "<cmd>CopilotChatRefactor<cr>", "Refactor code" },
-    n = { "<cmd>CopilotChatBetterNamings<cr>", "Better Naming" },
     m = { "<cmd>CopilotChatCommit<cr>", "Generate commit message for all changes" },
     M = { "<cmd>CopilotChatCommitStaged<cr>", "Generate commit message for staged changes" },
     q = {
@@ -78,14 +73,26 @@ lvim.builtin.which_key.mappings["a"] = {
         end,
         "Quick chat"
     },
-    d = { "<cmd>CopilotChatDebugInfo<cr>", "Debug Info" },
     f = { "<cmd>CopilotChatFixDiagnostic<cr>", "Fix Diagnostic" },
     l = { "<cmd>CopilotChatReset<cr>", "Clear buffer and chat history" },
     t = { "<cmd>CopilotChatToggle<cr>", "Toggle" },
 }
 
-lvim.builtin.which_key.mappings["v"] = {
-    "<cmd>CopilotChatVisual<cr>",
-    "Open chat in visual mode",
-    mode = "x",
+lvim.builtin.which_key.vmappings["a"] = {
+    name = "CopilotChat",
+    p = {
+        "<cmd>lua require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').prompt_actions())<cr>",
+        "Prompt actions"
+    },
+    v = {
+        "<cmd>CopilotChatVisual<cr>",
+        "Open chat using selected code",
+    },
+    e = { "<cmd>CopilotChatExplain<cr>", "Explain code" },
+    T = { "<cmd>CopilotChatTests<cr>", "Generate tests" },
+    r = { "<cmd>CopilotChatReview<cr>", "Review code" },
+    R = { "<cmd>CopilotChatRefactor<cr>", "Refactor code" },
+    o = { "<cmd>CopilotChatOptimize<cr>", "Optimize code" },
+    n = { "<cmd>CopilotChatBetterNamings<cr>", "Better Naming" },
+    d = { "<cmd>CopilotChatDocs<cr>", "Generate Docs" },
 }

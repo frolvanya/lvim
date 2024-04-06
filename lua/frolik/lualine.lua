@@ -91,6 +91,7 @@ lvim.builtin.lualine.tabline = {
                 fugitive = "Fugitive",
                 git = lvim.icons.git.Octoface .. " Git",
                 gitcommit = lvim.icons.git.Octoface .. " Git Commit",
+                chat = lvim.icons.git.Octoface .. " Copilot Chat",
             },
             buffers_color = {
                 active = "lualine_a_normal",
@@ -126,6 +127,7 @@ lvim.builtin.lualine.tabline = {
 
 lvim.builtin.lualine.extensions = {
     require("frolik.lualine-extensions.dap"),
+    require("frolik.lualine-extensions.copilot-chat"),
     require("frolik.lualine-extensions.fugitive"),
     require("frolik.lualine-extensions.harpoon-ext"),
     require("frolik.lualine-extensions.lazy"),

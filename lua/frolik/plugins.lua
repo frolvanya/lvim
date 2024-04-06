@@ -87,67 +87,10 @@ lvim.plugins = {
                 height = 0.8,
                 title = ""
             },
-            mappings = {
-                -- Use tab for completion
-                complete = {
-                    detail = "Use @<Tab> or /<Tab> for options.",
-                    insert = "<Tab>",
-                },
-                -- Close the chat
-                close = {
-                    normal = "q",
-                    insert = "<C-c>",
-                },
-                -- Reset the chat buffer
-                reset = {
-                    normal = "<C-l>",
-                    insert = "<C-l>",
-                },
-                -- Submit the prompt to Copilot
-                submit_prompt = {
-                    normal = "<CR>",
-                    insert = "<C-CR>",
-                },
-                -- Accept the diff
-                accept_diff = {
-                    normal = "<C-y>",
-                    insert = "<C-y>",
-                },
-                -- Yank the diff in the response to register
-                yank_diff = {
-                    normal = "gmy",
-                },
-                -- Show the diff
-                show_diff = {
-                    normal = "gmd",
-                },
-                -- Show the prompt
-                show_system_prompt = {
-                    normal = "gmp",
-                },
-                -- Show the user selection
-                show_user_selection = {
-                    normal = "gms",
-                },
-            },
         },
         config = function(_, opts)
             local chat = require("CopilotChat")
             local select = require("CopilotChat.select")
-            -- Use unnamed register for the selection
-            opts.selection = select.unnamed
-
-            -- Override the git prompts message
-            opts.prompts.Commit = {
-                prompt = "Write commit message for the change with commitizen convention",
-                selection = select.gitdiff,
-            }
-            opts.prompts.CommitStaged = {
-                prompt = "Write commit message for the change with commitizen convention",
-                selection = function(source)
-                    return select.gitdiff(source, true)
-                end,
-            }
 
             chat.setup(opts)
 
@@ -167,10 +110,9 @@ lvim.plugins = {
                     vim.opt_local.relativenumber = true
                     vim.opt_local.number = true
 
-                    -- Get current filetype and set it to markdown if the current filetype is copilot-chat
                     local ft = vim.bo.filetype
                     if ft == "copilot-chat" then
-                        vim.bo.filetype = "markdown"
+                        vim.bo.filetype = "chat"
                     end
                 end,
             })

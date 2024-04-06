@@ -11,6 +11,7 @@ lvim.builtin.which_key.mappings["T"] = nil
 lvim.builtin.which_key.mappings["q"] = nil
 lvim.builtin.which_key.mappings["w"] = nil
 lvim.builtin.which_key.mappings["f"] = nil
+lvim.builtin.which_key.mappings["c"] = nil
 
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>Telescope git_files<cr>", "Find Git File" }
 lvim.builtin.which_key.mappings["su"] = { "<cmd>Telescope undo<cr>", "Undotree" }
@@ -38,23 +39,6 @@ lvim.builtin.which_key.mappings["t"] = {
 local harpoon = require("harpoon")
 harpoon:setup()
 
--- local conf = require("telescope.config").values
--- local function toggle_telescope(harpoon_files)
---     local file_paths = {}
---     for _, item in ipairs(harpoon_files.items) do
---         table.insert(file_paths, item.value)
---     end
-
---     require("telescope.pickers").new({}, {
---         prompt_title = "Harpoon",
---         finder = require("telescope.finders").new_table({
---             results = file_paths,
---         }),
---         previewer = conf.file_previewer({}),
---         sorter = conf.generic_sorter({}),
---     }):find()
--- end
-
 lvim.builtin.which_key.mappings["h"] = {
     name = "Harpoon",
     a = { function() harpoon:list():append() end, "Add" },
@@ -66,4 +50,42 @@ lvim.builtin.which_key.mappings["h"] = {
     l = { function() harpoon:list():select(4) end, "Navigate to 4" },
     p = { function() harpoon:list():prev() end, "Previous" },
     n = { function() harpoon:list():next() end, "Next" },
+}
+
+lvim.builtin.which_key.mappings["a"] = {
+    name = "CopilotChat",
+    a = {
+        "<cmd>lua require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').help_actions())<cr>",
+        "Help actions"
+    },
+    p = {
+        "<cmd>lua require('CopilotChat.integrations.telescope').pick(require('CopilotChat.actions').prompt_actions())<cr>",
+        "Prompt actions"
+    },
+    e = { "<cmd>CopilotChatExplain<cr>", "Explain code" },
+    T = { "<cmd>CopilotChatTests<cr>", "Generate tests" },
+    r = { "<cmd>CopilotChatReview<cr>", "Review code" },
+    R = { "<cmd>CopilotChatRefactor<cr>", "Refactor code" },
+    n = { "<cmd>CopilotChatBetterNamings<cr>", "Better Naming" },
+    m = { "<cmd>CopilotChatCommit<cr>", "Generate commit message for all changes" },
+    M = { "<cmd>CopilotChatCommitStaged<cr>", "Generate commit message for staged changes" },
+    q = {
+        function()
+            local input = vim.fn.input("Quick Chat: ")
+            if input ~= "" then
+                vim.cmd("CopilotChatBuffer " .. input)
+            end
+        end,
+        "Quick chat"
+    },
+    d = { "<cmd>CopilotChatDebugInfo<cr>", "Debug Info" },
+    f = { "<cmd>CopilotChatFixDiagnostic<cr>", "Fix Diagnostic" },
+    l = { "<cmd>CopilotChatReset<cr>", "Clear buffer and chat history" },
+    t = { "<cmd>CopilotChatToggle<cr>", "Toggle" },
+}
+
+lvim.builtin.which_key.mappings["v"] = {
+    "<cmd>CopilotChatVisual<cr>",
+    "Open chat in visual mode",
+    mode = "x",
 }

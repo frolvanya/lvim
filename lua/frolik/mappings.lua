@@ -17,6 +17,9 @@ lvim.keys.normal_mode["<S-k>"] = "<cmd>wincmd k<CR>"
 
 lvim.keys.normal_mode["gx"] = "<cmd>lua OpenURLUnderCursor()<CR>"
 
+lvim.keys.normal_mode["g1"] = "<cmd>diffget //2<CR>"
+lvim.keys.normal_mode["g2"] = "<cmd>diffget //3<CR>"
+
 function OpenURLUnderCursor()
     local url = vim.fn.matchstr(vim.fn.getline('.'), '\\v<http[s]?://\\S+>')
     if url ~= '' then

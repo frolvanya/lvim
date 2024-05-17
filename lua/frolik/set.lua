@@ -2,7 +2,7 @@ vim.opt.shiftwidth     = 4
 vim.opt.tabstop        = 4
 vim.opt.hlsearch       = false
 vim.opt.updatetime     = 50
-vim.opt.timeoutlen     = 50
+vim.opt.timeoutlen     = 200
 vim.opt.indentexpr     = ""
 vim.opt.smartindent    = true
 

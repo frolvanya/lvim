@@ -16,6 +16,11 @@ lvim.builtin.which_key.mappings["c"] = nil
 lvim.builtin.which_key.mappings["sg"] = { "<cmd>Telescope git_files<cr>", "Find Git File" }
 lvim.builtin.which_key.mappings["su"] = { "<cmd>Telescope undo<cr>", "Undotree" }
 lvim.builtin.which_key.mappings["bw"] = { "<cmd>BufferKill<cr>", "Close current buffer" }
+lvim.builtin.which_key.mappings["lh"] = {
+    "<cmd>lua vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())<cr>",
+    "Toggle Inlay Hint"
+}
+
 
 lvim.builtin.which_key.mappings["g"] = {
     name = "Git",

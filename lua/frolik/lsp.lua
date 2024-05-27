@@ -2,6 +2,8 @@ local colors = require("frolik.colors")
 vim.cmd("autocmd ColorScheme * highlight NormalFloat guifg=" .. colors.nord5 .. " guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight FloatBorder guifg=" .. colors.nord5 .. " guibg=NONE")
 vim.cmd("autocmd ColorScheme * highlight LspInfoBorder guifg=" .. colors.nord5 .. " guibg=NONE")
+vim.cmd("autocmd ColorScheme * highlight link LspInlayHint Comment")
+vim.cmd("autocmd ColorScheme * highlight WinBarNC guifg=NONE guibg=NONE")
 
 local formatters = require "lvim.lsp.null-ls.formatters"
 formatters.setup {

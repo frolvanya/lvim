@@ -66,6 +66,10 @@ lvim.plugins = {
         end
     },
     {
+        "hrsh7th/nvim-cmp",
+        commit = "b356f2c"
+    },
+    {
         "CopilotC-Nvim/CopilotChat.nvim",
         branch = "canary",
         dependencies = {
@@ -137,6 +141,12 @@ lvim.plugins = {
         ft = { "markdown" },
         build = function() vim.fn["mkdp#util#install"]() end,
     },
+    {
+        'chomosuke/typst-preview.nvim',
+        ft = 'typst',
+        build = function() require 'typst-preview'.update() end,
+    },
+    { "sindrets/diffview.nvim" },
     { "tpope/vim-fugitive" },
     {
         "stevearc/oil.nvim",

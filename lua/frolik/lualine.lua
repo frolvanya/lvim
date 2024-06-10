@@ -23,15 +23,35 @@ lvim.builtin.lualine.options = {
 }
 
 local Harpoonline = require("harpoonline")
-Harpoonline.setup()
+-- Harpoonline.setup()
+Harpoonline.setup({
+    custom_formatter = function(data, opts)
+        local letters = { "h", "j", "k", "l" }
+        local idx = data.active_idx
+        local slot = 0
+        local slots = vim.tbl_map(function(letter)
+            slot = slot + 1
+            return idx and idx == slot and string.format("[%s]", letter) or string.format(" %s ", letter)
+        end, vim.list_slice(letters, 1, math.min(#letters, #data.items)))
+
+        local name = data.list_name and data.list_name or opts.default_list_name
+        local header = string.format("%s%s%s", opts.icon, name == "" and "" or " ", name)
+        return header .. " " .. table.concat(slots)
+    end,
+})
 
 lvim.builtin.lualine.sections = {
     lualine_a = {
         { "mode", separator = { left = "", right = "" } },
     },
-    lualine_b = { "filename" },
-    lualine_c = {
-        { "branch", icon = lvim.icons.git.Branch },
+    lualine_b = {
+        { "filename", separator = { right = "" } },
+        {
+            "branch",
+            icon = lvim.icons.git.Branch,
+            color = { bg = colors.nord15, fg = colors.nord1 },
+            separator = { right = "" }
+        },
         {
             "diff",
             symbols = {
@@ -39,23 +59,33 @@ lvim.builtin.lualine.sections = {
                 modified = lvim.icons.git.LineModified .. " ",
                 removed = lvim.icons.git.LineRemoved .. " "
             },
-            padding = { left = 2, right = 1 }
         },
     },
+    lualine_c = {},
     lualine_x = {
-        { Harpoonline.format, "filename" }
+        {
+            Harpoonline.format,
+            "filename",
+            color = { bg = colors.nord15, fg = colors.nord1, gui = "bold" },
+            separator = { left = "" }
+        }
     },
     lualine_y = { "filetype" },
-    lualine_z = { { "progress", separator = { left = "", right = "" } } },
+    lualine_z = { { "progress", separator = { left = "", right = "" }, color = { bg = colors.nord8, fg = colors.nord1, gui = "bold" } } },
 }
 
 lvim.builtin.lualine.inactive_sections = {
     lualine_a = {
         { "mode", separator = { left = "", right = "" } },
     },
-    lualine_b = { "filename" },
-    lualine_c = {
-        { "branch", icon = lvim.icons.git.Branch },
+    lualine_b = {
+        { "filename", separator = { right = "" } },
+        {
+            "branch",
+            icon = lvim.icons.git.Branch,
+            color = { bg = colors.nord15, fg = colors.nord1 },
+            separator = { right = "" }
+        },
         {
             "diff",
             symbols = {
@@ -63,12 +93,12 @@ lvim.builtin.lualine.inactive_sections = {
                 modified = lvim.icons.git.LineModified .. " ",
                 removed = lvim.icons.git.LineRemoved .. " "
             },
-            padding = { left = 2, right = 1 }
         },
     },
+    lualine_c = {},
     lualine_x = {},
     lualine_y = { "filetype" },
-    lualine_z = { { "progress", separator = { left = "", right = "" } } },
+    lualine_z = { { "progress", separator = { left = "", right = "" }, color = { bg = colors.nord8, fg = colors.nord1, gui = "bold" } } },
 }
 
 lvim.builtin.lualine.tabline = {
@@ -99,30 +129,35 @@ lvim.builtin.lualine.tabline = {
             },
         },
     },
-    lualine_x = {
+    lualine_x = {},
+    lualine_z = {
         {
             "diagnostics",
-            sources = { "nvim_lsp" },
+            sources = { "nvim_diagnostic" },
             sections = { "error", "warn", "info", "hint" },
             diagnostics_color = {
-                error = "DiagnosticError",
-                warn  = "DiagnosticWarn",
-                info  = "DiagnosticInfo",
-                hint  = "DiagnosticHint",
+                error = { fg = colors.nord16 },
+                warn = { fg = colors.nord17 },
+                info = { fg = colors.nord18 },
+                hint = { fg = colors.nord19 },
             },
-            symbols = {
-                error = lvim.icons.diagnostics.BoldError .. " ",
-                warn = lvim.icons.diagnostics.BoldWarning .. "  ",
-                info = lvim.icons.diagnostics.BoldInformation,
-                hint = lvim.icons.diagnostics.BoldHint .. " ",
+            symbols = { error = " ", warn = " ", info = " ", hint = " " },
+            separator = { left = "" },
+            color = {
+                bg = colors.nord1,
             },
-            separator = { left = "", right = "" },
-            colored = true,
-            update_in_insert = false,
-            always_visible = false,
+        },
+        {
+            "datetime",
+            style = "%H:%M",
+            separator = { left = "", right = "" },
+            color = {
+                bg = colors.nord8,
+                fg = colors.nord1,
+                gui = "bold",
+            },
         }
     },
-    lualine_z = { { "datetime", style = "%H:%M", separator = { left = "", right = "" } } },
 }
 
 lvim.builtin.lualine.extensions = {

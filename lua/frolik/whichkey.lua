@@ -38,9 +38,8 @@ lvim.builtin.which_key.mappings["g"] = {
 
 lvim.builtin.which_key.mappings["t"] = {
     name = "Trouble",
-    t = { "<cmd>TroubleToggle<cr>", "Toggle" },
-    r = { "<cmd>TroubleRefresh<cr>", "Refresh" },
-    c = { "<cmd>TroubleClose<cr>", "Close" },
+    t = { "<cmd>Trouble diagnostics toggle<cr>", "Toggle" },
+    s = { "<cmd>Trouble symbols toggle focus=false<cr>", "Symbols" },
 }
 
 local harpoon = require("harpoon")
@@ -48,7 +47,7 @@ harpoon:setup()
 
 lvim.builtin.which_key.mappings["h"] = {
     name = "Harpoon",
-    a = { function() harpoon:list():append() end, "Add" },
+    a = { function() harpoon:list():add() end, "Add" },
     e = { function() harpoon.ui:toggle_quick_menu(harpoon:list(), { border = "rounded", title_pos = "center" }) end, "Toggle quick menu" },
     -- e = { function() toggle_telescope(harpoon:list()) end, "Toggle quick menu" },
     h = { function() harpoon:list():select(1) end, "Navigate to 1" },

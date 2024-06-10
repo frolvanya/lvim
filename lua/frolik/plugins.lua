@@ -22,7 +22,8 @@ lvim.plugins = {
 
     {
         "folke/trouble.nvim",
-        cmd = "TroubleToggle",
+        opts = {},
+        cmd = "Trouble",
     },
     { "onsails/lspkind.nvim" },
     {
@@ -55,6 +56,20 @@ lvim.plugins = {
                 },
             })
         end,
+    },
+    {
+        "kevinhwang91/nvim-ufo",
+        dependencies = "kevinhwang91/promise-async",
+        config = function()
+            vim.o.foldlevel = 99
+            vim.o.foldlevelstart = 99
+
+            require('ufo').setup({
+                provider_selector = function(bufnr, filetype, buftype)
+                    return { 'treesitter', 'indent' }
+                end
+            })
+        end
     },
 
     { "zbirenbaum/copilot.lua" },
@@ -179,11 +194,24 @@ lvim.plugins = {
                     }
                 },
                 server = {
-                    on_attach = require("lvim.lsp").common_on_attach
+                    on_attach = require("lvim.lsp").common_on_attach,
                 },
             }
         end,
     },
+    -- {
+    --     "simrat39/rust-tools.nvim",
+    --     config = function()
+    --         local rt = require("rust-tools")
+    --         rt.setup({
+    --             server = {
+    --                 on_attach = function(_, bufnr)
+    --                     vim.keymap.set("n", "K", rt.hover_actions.hover_actions, { buffer = bufnr })
+    --                 end,
+    --             },
+    --         })
+    --     end
+    -- },
     {
         "saecki/crates.nvim",
         version = "v0.4.0",

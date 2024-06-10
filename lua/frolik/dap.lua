@@ -12,34 +12,6 @@ local codelldb_adapter             = {
 lvim.builtin.dap.on_config_done    = function(dap)
     dap.adapters.codelldb = codelldb_adapter
 
-    dap.configurations.rust = {
-        {
-            type = "codelldb",
-            request = "launch",
-            program = function()
-                os.execute("cargo build &> /dev/null")
-                return "target/debug/${workspaceFolderBasename}"
-            end,
-            args = function()
-                local argv = {}
-                arg = vim.fn.input(string.format("argv: "))
-                for a in string.gmatch(arg, "%S+") do
-                    table.insert(argv, a)
-                end
-                vim.cmd("echo ''")
-                return argv
-            end,
-            cwd = "${workspaceFolder}",
-            setupCommands = {
-                {
-                    text = "-enable-pretty-printing",
-                    description = "enable pretty printing",
-                    ignoreFailures = false,
-                },
-            },
-        },
-    }
-
     dap.configurations.cpp = {
         {
             type = "codelldb",

@@ -12,7 +12,7 @@ local nordic = {
     inactive = {
         a = { fg = colors.nord1, bg = colors.nord8, gui = "bold" },
         b = { fg = colors.nord5, bg = colors.nord1 },
-        c = { fg = colors.nord5, bg = colors.nord1 },
+        c = { fg = colors.nord5, bg = colors.nord14 },
     },
 }
 

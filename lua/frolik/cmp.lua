@@ -5,7 +5,6 @@ lvim.builtin.cmp.window.completion.scrollbar = false
 
 lvim.builtin.cmp.preselect                   = require "cmp.types.cmp".PreselectMode.None
 
-
 table.insert(lvim.builtin.cmp.sources, { name = "nvim_lsp_signature_help" })
 
 local lspkind                      = require("lspkind")
